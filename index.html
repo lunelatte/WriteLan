@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WriteLan - พิกเซลโนเวล</title>
+    <title>WriteLan - Pixel Novel PWA</title>
+    <!-- ลิงก์ไฟล์ CSS ดีไซน์พิกเซลของคุณ -->
     <link rel="stylesheet" href="style.css">
+    <!-- Manifest สำหรับทำ PWA บน iOS/Android -->
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <h1>ยินดีต้อนรับสู่ WriteLan</h1>
-    <div id="app">กำลังโหลดระบบนิยาย...</div>
+    <!-- โครงสร้างหน้าจอหลักของแอปนิยาย -->
+    <div id="app">
+        <header>
+            <h1>📖 WriteLan Pixel Novel</h1>
+            <div id="auth-container">
+                <!-- ส่วนระบบล็อกอิน/สมาชิกจะแสดงตรงนี้ -->
+            </div>
+        </header>
+
+        <main>
+            <section id="novel-list-section">
+                <h2>ชั้นหนังสือนิยาย</h2>
+                <div id="novels-container">
+                    <!-- รายการนิยายจะถูกโหลดมาแสดงที่นี่ -->
+                </div>
+            </section>
+        </main>
+    </div>
 
     <!-- เชื่อมต่อไฟล์ JavaScript หลัก -->
     <script type="module" src="app.js"></script>
