@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WriteLan - Pixel Novel PWA</title>
-    <!-- ลิงก์ไฟล์ CSS ดีไซน์พิกเซลของคุณ -->
     <link rel="stylesheet" href="style.css">
-    <!-- Manifest สำหรับทำ PWA บน iOS/Android -->
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <!-- โครงสร้างหน้าจอหลักของแอปนิยาย -->
-    <div id="app">
+
+    <!-- 1. หน้าแรก (Welcome / Login Screen) แสดงภาพพิกเซลและปุ่มเข้าสู่ระบบ -->
+    <div id="welcome-screen" class="screen">
+        <div class="welcome-content">
+            <img src="artworks/welcome-bg.png" alt="WriteLan Pixel Art" class="welcome-img">
+            <button id="login-btn" class="pixel-btn">เข้าสู่ระบบ</button>
+        </div>
+    </div>
+
+    <!-- 2. หน้าหลักของแอป (ซ่อนไว้ก่อนจนกว่าจะล็อกอินสำเร็จ) -->
+    <div id="main-app-screen" class="screen" style="display: none;">
         <header>
             <h1>📖 WriteLan Pixel Novel</h1>
             <div id="auth-container">
-                <!-- ส่วนระบบล็อกอิน/สมาชิกจะแสดงตรงนี้ -->
+                <button id="logout-btn" class="pixel-btn-small">ออกจากระบบ</button>
             </div>
         </header>
 
@@ -23,7 +30,7 @@
             <section id="novel-list-section">
                 <h2>ชั้นหนังสือนิยาย</h2>
                 <div id="novels-container">
-                    <!-- รายการนิยายจะถูกโหลดมาแสดงที่นี่ -->
+                    <!-- รายการนิยายจะแสดงที่นี่ -->
                 </div>
             </section>
         </main>

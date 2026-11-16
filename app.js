@@ -26,3 +26,17 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 console.log("Firebase initialized successfully!");
+
+// ตัวอย่างฟังก์ชันสลับหน้าจอเมื่อคลิกปุ่มเข้าสู่ระบบ
+const loginBtn = document.getElementById('login-btn');
+const welcomeScreen = document.getElementById('welcome-screen');
+const mainAppScreen = document.getElementById('main-app-screen');
+
+if (loginBtn) {
+    loginBtn.addEventListener('click', () => {
+        // ตรงนี้สามารถใส่ระบบ Firebase Auth (เช่น Google Login หรือ Email Login) ได้ตามต้องการ
+        // เบื้องต้นให้สลับหน้าจอโชว์หน้าหลักก่อนครับ
+        welcomeScreen.style.display = 'none';
+        mainAppScreen.style.display = 'block';
+    });
+}
