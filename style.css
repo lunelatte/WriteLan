@@ -1,0 +1,406 @@
+/* ================= โหลดฟอนต์จากโฟลเดอร์ GitHub ================= */
+@font-face {
+  font-family: 'Jindara';
+  src: url('fonts/Jindara.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Srivichai';
+  src: url('fonts/Srivichai.ttf') format('truetype');
+  font-display: swap;
+}
+
+/* ================= ชุดสี 4 ธีม ================= */
+:root, [data-theme="pruksa"] {
+  --bg-main: #f0fdfa;
+  --bg-card: #ffffff;
+  --bg-soft: #ccfbf1;
+  --primary: #14b8a6;
+  --primary-dark: #0f766e;
+  --text-main: #134e4a;
+  --text-muted: #527977;
+  --border-color: #99f6e4;
+}
+
+[data-theme="latte"] {
+  --bg-main: #faf6f0;
+  --bg-card: #ffffff;
+  --bg-soft: #f3e8d8;
+  --primary: #a47551;
+  --primary-dark: #6f4e37;
+  --text-main: #4a3525;
+  --text-muted: #8c735b;
+  --border-color: #e6d5c1;
+}
+
+[data-theme="sakura"] {
+  --bg-main: #fff5f7;
+  --bg-card: #ffffff;
+  --bg-soft: #ffe4e8;
+  --primary: #f472b6;
+  --primary-dark: #db2777;
+  --text-main: #701a3c;
+  --text-muted: #9d5c74;
+  --border-color: #fbcfe8;
+}
+
+[data-theme="dark"] {
+  --bg-main: #0f172a;
+  --bg-card: #1e293b;
+  --bg-soft: #334155;
+  --primary: #38bdf8;
+  --primary-dark: #0284c7;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Prompt', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition: background-color 0.3s, color 0.3s;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.hidden { display: none !important; }
+.pixel-img { image-rendering: pixelated; }
+
+/* ================= หน้าแรกพิกเซล (Splash Screen) ================= */
+.splash-container {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 12vh;
+}
+
+.pixel-btn-main {
+  background: linear-gradient(180deg, #2dd4bf 0%, #0d9488 100%);
+  color: #fff;
+  border: 4px solid #ffffff;
+  border-radius: 999px;
+  padding: 16px 42px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(13, 148, 136, 0.45);
+  cursor: pointer;
+  animation: floatBtn 2.5s ease-in-out infinite;
+}
+
+@keyframes floatBtn {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ================= หน้า Auth ================= */
+.auth-container {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 28px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  color: #134e4a;
+}
+
+.auth-logo { width: 64px; height: 64px; display: block; margin: 0 auto 10px; }
+.auth-card h2 { text-align: center; margin: 0; }
+.subtitle { text-align: center; color: #527977; font-size: 0.9rem; margin-bottom: 20px; }
+
+input, select, textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--bg-card);
+  color: var(--text-main);
+  margin-top: 5px;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+}
+
+.primary-btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 11px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.primary-btn:hover { background: var(--primary-dark); }
+.full-width { width: 100%; }
+
+/* ================= App Header & Bottom Nav ================= */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  padding: calc(10px + env(safe-area-inset-top)) 16px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left { display: flex; align-items: center; gap: 8px; }
+.header-icon { width: 32px; height: 32px; }
+.brand-name { font-weight: 700; font-size: 1.2rem; color: var(--primary-dark); }
+.theme-select { width: auto; margin: 0; padding: 6px 10px; font-size: 0.85rem; }
+
+.tab-content {
+  display: none;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px 16px 90px;
+}
+.tab-content.active { display: block; }
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+  z-index: 60;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.nav-item.active { color: var(--primary-dark); font-weight: 700; }
+.nav-icon { width: 26px; height: 26px; }
+
+/* ================= หน้าหลัก (Hero + Search + Grid) ================= */
+.hero-banner {
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  margin-bottom: 16px;
+  color: #134e4a;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+.hero-content { display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.75); padding: 12px; border-radius: 16px; }
+.hero-cat { width: 64px; height: 64px; border-radius: 12px; }
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: var(--bg-card);
+  border: 2px solid var(--primary);
+  border-radius: 999px;
+  padding: 4px 16px;
+  gap: 10px;
+}
+.search-box input { border: none; margin: 0; outline: none; background: transparent; }
+.icon-sm { width: 22px; height: 22px; }
+.icon-xs { width: 18px; height: 18px; }
+.icon-md { width: 28px; height: 28px; }
+
+.quick-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.tag-pill {
+  background: var(--bg-soft);
+  color: var(--primary-dark);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border: none;
+}
+
+.novel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.novel-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.novel-card:hover { transform: translateY(-3px); }
+.novel-card img { width: 100%; height: 200px; object-fit: cover; }
+.novel-card-info { padding: 10px; }
+.novel-card-title { font-weight: 600; font-size: 0.95rem; margin: 0 0 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.novel-card-meta { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ================= สตูดิโอนักเขียน & คำเตือนแบบภาพที่ 3 ================= */
+.studio-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 14px;
+}
+
+.cover-upload-box { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+.cover-upload-box img { width: 90px; height: 120px; object-fit: cover; border-radius: 12px; border: 2px solid var(--border-color); }
+.upload-label { display: inline-block; background: var(--bg-soft); color: var(--primary-dark); padding: 8px 14px; border-radius: 10px; cursor: pointer; font-weight: 600; }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+
+.warning-box-container {
+  background: var(--bg-soft);
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+.warning-header { display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 12px; }
+.nsfw-checkbox { display: flex; align-items: center; gap: 6px; background: #fee2e2; color: #b91c1c; padding: 4px 12px; border-radius: 999px; font-size: 0.85rem; }
+.nsfw-checkbox input { width: auto; margin: 0; }
+
+.rating-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 14px; }
+@media (max-width: 600px) { .rating-cards { grid-template-columns: repeat(2, 1fr); } }
+
+.rating-card input { display: none; }
+.rating-card .rc-body {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  height: 100%;
+}
+.rating-card input:checked + .rc-body {
+  border-color: var(--primary-dark);
+  background: var(--bg-main);
+}
+.rc-body strong { display: block; font-size: 0.9rem; }
+.rc-body span { font-size: 0.72rem; color: var(--text-muted); }
+
+.cw-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 14px; }
+.cw-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.cw-chip.selected { background: var(--primary-dark); color: #fff; border-color: var(--primary-dark); }
+.cw-chip.add-custom { border-style: dashed; }
+
+/* ================= Chapter Editor ================= */
+.editor-container { background: var(--bg-card); border-radius: 20px; padding: 16px; border: 1px solid var(--border-color); }
+.chapter-title-field { font-size: 1.2rem; font-weight: 700; border: none; border-bottom: 2px solid var(--border-color); border-radius: 0; }
+.editor-toolbar {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 8px; background: var(--bg-soft); border-radius: 12px; margin-bottom: 12px; align-items: center;
+}
+.editor-toolbar select { width: auto; margin: 0; padding: 4px 8px; }
+.tb-btn, .color-picker-btn {
+  background: var(--bg-card); border: 1px solid var(--border-color);
+  border-radius: 8px; padding: 5px 10px; cursor: pointer; font-size: 0.85rem; color: var(--text-main);
+}
+.color-picker-btn input { width: 18px; height: 18px; padding: 0; border: none; margin: 0; vertical-align: middle; }
+
+.rich-editor-area {
+  min-height: 380px;
+  padding: 16px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 14px;
+  outline: none;
+  line-height: 1.8;
+  font-size: 17px;
+  overflow-y: auto;
+}
+.rich-editor-area img { max-width: 100%; border-radius: 10px; margin: 10px 0; }
+.editor-actions { display: flex; gap: 10px; margin-top: 14px; }
+.secondary-btn { background: var(--bg-soft); color: var(--primary-dark); border: none; border-radius: 12px; padding: 12px; flex: 1; font-weight: 600; cursor: pointer; }
+.editor-actions .primary-btn { flex: 1; }
+
+/* ================= หน้าบัญชี (Account) ================= */
+.account-header-card { border-radius: 20px; background-size: cover; padding: 18px; color: #134e4a; }
+.profile-row { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.85); padding: 12px; border-radius: 16px; }
+.avatar-img { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--primary); }
+.profile-info { flex: 1; }
+.profile-info h3 { margin: 0; }
+.stats-card {
+  display: flex; justify-content: space-around; align-items: center;
+  background: var(--bg-card); color: var(--text-main);
+  border-radius: 16px; padding: 14px; margin-top: 12px;
+}
+.stat-item { text-align: center; }
+.stat-item strong { display: block; font-size: 1.2rem; color: var(--primary-dark); }
+.stat-item span { font-size: 0.78rem; color: var(--text-muted); }
+.stat-divider { width: 1px; height: 36px; background: var(--border-color); }
+
+.menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
+.menu-tile {
+  background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px;
+  padding: 14px 8px; display: flex; flex-direction: column; align-items: center; gap: 6px;
+  color: var(--text-main); cursor: pointer; font-size: 0.85rem;
+}
+.theme-dot { width: 24px; height: 24px; border-radius: 50%; display: inline-block; }
+.theme-dot.pruksa { background: #14b8a6; }
+.theme-dot.latte { background: #a47551; }
+.theme-dot.sakura { background: #f472b6; }
+.theme-dot.dark { background: #0f172a; }
+
+/* ================= หน้าอ่านนิยาย & ตั้งค่าการอ่าน ================= */
+.full-modal { position: fixed; inset: 0; background: var(--bg-main); z-index: 100; overflow-y: auto; padding: 16px; }
+.reader-top-bar, .modal-top-bar {
+  position: sticky; top: 0; background: var(--bg-card); padding: 10px 14px;
+  border-radius: 14px; display: flex; justify-content: space-between; align-items: center;
+  border: 1px solid var(--border-color); z-index: 110;
+}
+.reader-settings-popover {
+  position: fixed; top: 70px; right: 20px; width: 300px;
+  background: var(--bg-card); border: 2px solid var(--primary);
+  border-radius: 18px; padding: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 120;
+}
+.font-btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 8px 0 12px; }
+.font-choice { padding: 6px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-main); color: var(--text-main); cursor: pointer; }
+.font-choice.active { background: var(--primary); color: #fff; }
+.range-labels { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted); }
+
+.reader-article { max-width: 720px; margin: 20px auto 80px; background: var(--bg-card); padding: 24px; border-radius: 20px; }
+.reader-text { font-size: 18px; line-height: 1.6; word-break: break-word; }
+.space-between { display: flex; justify-content: space-between; align-items: center; }
+.back-btn { background: var(--bg-soft); border: none; padding: 8px 14px; border-radius: 10px; color: var(--primary-dark); font-weight: 600; cursor: pointer; }
+.sub-tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+.sub-tab-btn { flex: 1; padding: 10px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-main); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.sub-tab-btn.active { background: var(--primary); color: #fff; }
+.sub-tab-pane { display: none; }
+.sub-tab-pane.active { display: block; }
+.chapter-item-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 12px 16px; border-radius: 14px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }

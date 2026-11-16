@@ -1,0 +1,15 @@
+{
+  "name": "WriteLan - อ่านและเขียนนิยาย",
+  "short_name": "WriteLan",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#e0f7fa",
+  "theme_color": "#14b8a6",
+  "icons": [
+    {
+      "src": "artworks/Icon_Web.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
