@@ -491,3 +491,30 @@ body, html {
     object-fit: cover;
     display: block;
 }
+
+/* บังคับให้หน้าเว็บทั้งหมดกางชนขอบกระจกบน-ล่างของ iPhone */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #60d5f8; /* สีฟ้ากลืนกับท้องฟ้าด้านบนของรูป */
+    overflow: hidden;
+}
+
+#welcome-screen {
+    position: fixed;
+    inset: 0; /* ยึดติดขอบบน ล่าง ซ้าย ขวา แบบ 0px */
+    width: 100vw;
+    height: 100lvh; /* Large Viewport Height: บังคับขยายเต็มจอรวมพื้นที่แถบบน-ล่าง */
+    margin: 0;
+    padding: 0;
+    z-index: 99999;
+}
+
+.welcome-content, .welcome-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
