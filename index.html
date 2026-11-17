@@ -37,157 +37,61 @@
 
         <div class="main-scroll-area">
             
-            <!-- 1. แบนเนอร์นิยายขอบมน เลื่อนอัตโนมัติทุก 5 วินาที -->
-            <section class="banner-slider-container">
-                <div class="slider-track" id="bannerTrack">
-                    <div class="slide-item"><img src="artworks/cozycat.png" alt="Banner 1"></div>
-                    <div class="slide-item"><img src="artworks/bg1.png" alt="Banner 2"></div>
-                    <div class="slide-item"><img src="artworks/bg2.png" alt="Banner 3"></div>
-                </div>
-                <!-- จุดสไลด์บอกหน้า -->
-                <div class="banner-dots" id="bannerDots">
-                    <span class="b-dot active" onclick="currentSlide(0)"></span>
-                    <span class="b-dot" onclick="currentSlide(1)"></span>
-                    <span class="b-dot" onclick="currentSlide(2)"></span>
-                </div>
-            </section>
-
-            <!-- 2. เมนูทางลัด 4 ปุ่ม (ไม่ทับรูป เล็กกระทัดรัด ไม่มีพื้นหลัง) -->
-            <section class="quick-menu">
-                <button class="menu-card" onclick="selectMenu('หมวดหมู่')">
-                    <div class="icon-box">
-                        <img src="artworks/icon_book.png" alt="หมวดหมู่" class="pixel-menu-icon">
+            <!-- === ส่วนที่ 1: หน้าแรก (Home Content) === -->
+            <div id="home-page-content">
+                <!-- แบนเนอร์สไลด์ -->
+                <section class="banner-slider-container">
+                    <div class="slider-track" id="bannerTrack">
+                        <div class="slide-item"><img src="artworks/cozycat.png" alt="Banner 1"></div>
+                        <div class="slide-item"><img src="artworks/bg1.png" alt="Banner 2"></div>
+                        <div class="slide-item"><img src="artworks/bg2.png" alt="Banner 3"></div>
                     </div>
-                    <span>หมวดหมู่</span>
-                </button>
-
-                <button class="menu-card" onclick="selectMenu('จัดอันดับ')">
-                    <div class="icon-box">
-                        <img src="artworks/icon_trophy.png" alt="จัดอันดับ" class="pixel-menu-icon">
+                    <div class="banner-dots" id="bannerDots">
+                        <span class="b-dot active" onclick="currentSlide(0)"></span>
+                        <span class="b-dot" onclick="currentSlide(1)"></span>
+                        <span class="b-dot" onclick="currentSlide(2)"></span>
                     </div>
-                    <span>จัดอันดับ</span>
-                </button>
+                </section>
 
-                <button class="menu-card" onclick="selectMenu('ใหม่ล่าสุด')">
-                    <span class="badge-new">NEW</span>
-                    <div class="icon-box">
-                        <img src="artworks/icon_energy.png" alt="ใหม่ล่าสุด" class="pixel-menu-icon">
+                <!-- เมนูทางลัด 4 ปุ่ม -->
+                <section class="quick-menu">
+                    <button class="menu-card" onclick="selectMenu('หมวดหมู่')">
+                        <div class="icon-box"><img src="artworks/icon_book.png" alt="หมวดหมู่" class="pixel-menu-icon"></div>
+                        <span>หมวดหมู่</span>
+                    </button>
+                    <button class="menu-card" onclick="selectMenu('จัดอันดับ')">
+                        <div class="icon-box"><img src="artworks/icon_trophy.png" alt="จัดอันดับ" class="pixel-menu-icon"></div>
+                        <span>จัดอันดับ</span>
+                    </button>
+                    <button class="menu-card" onclick="selectMenu('ใหม่ล่าสุด')">
+                        <span class="badge-new">NEW</span>
+                        <div class="icon-box"><img src="artworks/icon_star.png" alt="ใหม่ล่าสุด" class="pixel-menu-icon"></div>
+                        <span>ใหม่ล่าสุด</span>
+                    </button>
+                    <button class="menu-card" onclick="selectMenu('กิจกรรม')">
+                        <div class="icon-box"><img src="artworks/icon_gift.png" alt="กิจกรรม" class="pixel-menu-icon"></div>
+                        <span>กิจกรรม</span>
+                    </button>
+                </section>
+
+                <!-- นิยายแนะนำ -->
+                <section class="novel-section">
+                    <div class="section-header">
+                        <h2><img src="artworks/icon_star.png" alt="Star" class="section-heading-icon"> นิยายแนะนำ</h2>
+                        <a href="#" class="view-all">ดูทั้งหมด &gt;</a>
                     </div>
-                    <span>ใหม่ล่าสุด</span>
-                </button>
-
-                <button class="menu-card" onclick="selectMenu('กิจกรรม')">
-                    <div class="icon-box">
-                        <img src="artworks/icon_gift.png" alt="กิจกรรม" class="pixel-menu-icon">
-                    </div>
-                    <span>กิจกรรม</span>
-                </button>
-            </section>
-
-            <!-- 3. ส่วน "นิยายแนะนำ" (ใช้ icon_star นำหน้า + รายการตัวอย่างเรียงลงมา) -->
-            <section class="novel-section">
-                <div class="section-header">
-                    <h2>
-                        <img src="artworks/icon_star.png" alt="Star" class="section-heading-icon"> 
-                        นิยายแนะนำ
-                    </h2>
-                    <a href="#" class="view-all">ดูทั้งหมด &gt;</a>
-                </div>
-
-                <!-- รายการนิยายตัวอย่างที่ 1 -->
-                <div class="featured-card">
-                    <div class="novel-cover-placeholder" style="background: linear-gradient(135deg, #a5f3fc 0%, #38bdf8 100%);">
-                        <span>ปก 1</span>
-                    </div>
-                    <div class="novel-info">
-                        <h3 class="novel-title">พ่ายรักมาเฟียร้าย</h3>
-                        <p class="novel-desc">เมื่อความรักต้องแลกด้วยหัวใจของเธอเอง... เรื่องราวสุดเข้มข้นที่จะทำให้คุณวางไม่ลง</p>
-                        <div class="novel-meta">
-                            <span class="likes">♡ 510K</span>
-                            <span class="genre-tag">โรแมนติก</span>
+                    <div class="featured-card">
+                        <div class="novel-cover-placeholder" style="background: linear-gradient(135deg, #a5f3fc 0%, #38bdf8 100%);"><span>ปก 1</span></div>
+                        <div class="novel-info">
+                            <h3 class="novel-title">พ่ายรักมาเฟียร้าย</h3>
+                            <p class="novel-desc">เมื่อความรักต้องแลกด้วยหัวใจของเธอเอง...</p>
+                            <div class="novel-meta"><span class="likes">♡ 510K</span><span class="genre-tag">โรแมนติก</span></div>
                         </div>
                     </div>
-                </div>
+                </section>
+            </div>
 
-                <!-- รายการนิยายตัวอย่างที่ 2 -->
-                <div class="featured-card">
-                    <div class="novel-cover-placeholder" style="background: linear-gradient(135deg, #fbcfe8 100%, #f472b6 100%);">
-                        <span>ปก 2</span>
-                    </div>
-                    <div class="novel-info">
-                        <h3 class="novel-title">เวทมนตร์รักฉบับอลวน</h3>
-                        <p class="novel-desc">ท่านจอมมารหน้าตายกับบาทหลวงฝึกหัดผู้มีพลังวิเศษรั่วไหล การผจญภัยปนความฟินจึงเริ่มต้นขึ้น</p>
-                        <div class="novel-meta">
-                            <span class="likes">♡ 280K</span>
-                            <span class="genre-tag">แฟนตาซี</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- รายการนิยายตัวอย่างที่ 3 -->
-                <div class="featured-card">
-                    <div class="novel-cover-placeholder" style="background: linear-gradient(135deg, #fed7aa 100%, #fb923c 100%);">
-                        <span>ปก 3</span>
-                    </div>
-                    <div class="novel-info">
-                        <h3 class="novel-title">วันสลักโลกันตร์</h3>
-                        <p class="novel-desc">ย้อนเวลากลับมาแก้แค้นในร่างของคุณชายรองผู้ถูกเนรเทศ เกมนี้ใครคือผู้ล่าตัวจริง</p>
-                        <div class="novel-meta">
-                            <span class="likes">♡ 195K</span>
-                            <span class="genre-tag">แอคชั่น</span>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-
-        </div>
-
-        <!-- 4. แถบเมนูด้านล่าง -->
-        <nav class="bottom-nav">
-            <button class="nav-item active" onclick="switchTab(this, 'หน้าแรก')">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                </svg>
-                <span>หน้าแรก</span>
-            </button>
-
-            <button class="nav-item" onclick="switchTab(this, 'แฟนฟิคชั่น')">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                </svg>
-                <span>แฟนฟิคชั่น</span>
-            </button>
-
-            <button class="nav-item" onclick="switchTab(this, 'คลังของฉัน')">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                </svg>
-                <span>คลังของฉัน</span>
-            </button>
-
-            <button class="nav-item" onclick="switchTab(this, 'นักเขียน')">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                    <path d="M2 2l7.5 7.5"></path>
-                    <path d="M11.5 12.5l3 3"></path>
-                </svg>
-                <span>นักเขียน</span>
-            </button>
-
-            <button class="nav-item" onclick="switchTab(this, 'บัญชี')">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-                <span>บัญชี</span>
-            </button>
-        </nav>
-    </div>
-
-    <!-- หน้าบัญชี -->
+            <!-- === ส่วนที่ 2: หน้าบัญชี (Profile Page) === -->
             <div id="profile-page" class="page-view" style="display: none;">
                 <!-- 1. ข้อมูลโปรไฟล์ส่วนตัว -->
                 <div class="profile-header-card">
@@ -203,29 +107,23 @@
                 <!-- 2. กล่องสถิติ -->
                 <div class="profile-stats-card">
                     <div class="stat-item">
-                        <div class="stat-icon-box">
-                            <img src="artworks/icon_book.png" alt="นิยายที่อ่าน" class="pixel-stat-icon">
-                        </div>
+                        <div class="stat-icon-box"><img src="artworks/icon_book.png" alt="นิยายที่อ่าน" class="pixel-stat-icon"></div>
                         <span class="stat-number">356</span>
                         <span class="stat-label">นิยายที่อ่าน</span>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-icon-box">
-                            <img src="artworks/icon_heart.png" alt="รายการโปรด" class="pixel-stat-icon">
-                        </div>
+                        <div class="stat-icon-box"><img src="artworks/icon_heart.png" alt="รายการโปรด" class="pixel-stat-icon"></div>
                         <span class="stat-number">128</span>
                         <span class="stat-label">รายการโปรด</span>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-icon-box">
-                            <img src="artworks/icon_medal.png" alt="เหรียญตรา" class="pixel-stat-icon">
-                        </div>
+                        <div class="stat-icon-box"><img src="artworks/icon_medal.png" alt="เหรียญตรา" class="pixel-stat-icon"></div>
                         <span class="stat-number">42</span>
                         <span class="stat-label">เหรียญตรา</span>
                     </div>
                 </div>
 
-                <!-- 3. แบนเนอร์กิจกรรมพิเศษ (เช็กตรงนี้! ต้องมี </div> ปิดครบ 3 ตัวก่อนขึ้นกล่องเมนู) -->
+                <!-- 3. แบนเนอร์กิจกรรมพิเศษ -->
                 <div class="special-event-banner" onclick="openProfileDetail()">
                     <div class="event-left">
                         <img src="artworks/cozycat.png" alt="Special Event" class="event-cat-img">
@@ -237,47 +135,28 @@
                     <div class="event-right">
                         <span>โปรไฟล์ของคุณ &gt;</span>
                     </div>
-                </div> <!-- <-- แท็กปิดกล่องสีฟ้าตรงนี้ที่หายไปครับ -->
+                </div>
 
                 <!-- 4. รายการเมนูหลัก -->
                 <div class="profile-menu-list">
                     <button class="profile-menu-item" onclick="openMenuAction('เหรียญของฉัน')">
-                        <div class="menu-item-left">
-                            <span class="menu-item-icon">🪙</span>
-                            <span>เหรียญของฉัน</span>
-                        </div>
+                        <div class="menu-item-left"><span class="menu-item-icon">🪙</span><span>เหรียญของฉัน</span></div>
                         <span class="arrow">&gt;</span>
                     </button>
-
                     <button class="profile-menu-item" onclick="openMenuAction('ประวัติการซื้อ')">
-                        <div class="menu-item-left">
-                            <span class="menu-item-icon">📦</span>
-                            <span>ประวัติการซื้อ</span>
-                        </div>
+                        <div class="menu-item-left"><span class="menu-item-icon">📦</span><span>ประวัติการซื้อ</span></div>
                         <span class="arrow">&gt;</span>
                     </button>
-
                     <button class="profile-menu-item" onclick="openMenuAction('ตั้งค่าแอปพลิเคชั่น')">
-                        <div class="menu-item-left">
-                            <span class="menu-item-icon">⚙️</span>
-                            <span>ตั้งค่าแอปพลิเคชั่น</span>
-                        </div>
+                        <div class="menu-item-left"><span class="menu-item-icon">⚙️</span><span>ตั้งค่าแอปพลิเคชั่น</span></div>
                         <span class="arrow">&gt;</span>
                     </button>
-
                     <button class="profile-menu-item" onclick="openMenuAction('ตั้งค่าการแจ้งเตือน')">
-                        <div class="menu-item-left">
-                            <span class="menu-item-icon">🔔</span>
-                            <span>ตั้งค่าการแจ้งเตือน</span>
-                        </div>
+                        <div class="menu-item-left"><span class="menu-item-icon">🔔</span><span>ตั้งค่าการแจ้งเตือน</span></div>
                         <span class="arrow">&gt;</span>
                     </button>
-
                     <button class="profile-menu-item" onclick="openMenuAction('ติดต่อเรา')">
-                        <div class="menu-item-left">
-                            <span class="menu-item-icon">✉️</span>
-                            <span>ติดต่อเรา</span>
-                        </div>
+                        <div class="menu-item-left"><span class="menu-item-icon">✉️</span><span>ติดต่อเรา</span></div>
                         <span class="arrow">&gt;</span>
                     </button>
                 </div>
@@ -286,5 +165,6 @@
                 <div class="logout-container">
                     <button class="logout-btn" onclick="handleLogout()">ออกจากระบบ</button>
                 </div>
-
             </div>
+
+        </div>
