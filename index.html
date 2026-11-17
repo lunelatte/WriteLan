@@ -187,6 +187,105 @@
         </nav>
     </div>
 
+    <!-- หน้าบัญชี -->
+            <div id="profile-page" class="page-view" style="display: none;">
+                
+                <!-- 1. ข้อมูลโปรไฟล์ส่วนตัว -->
+                <div class="profile-header-card">
+                    <div class="profile-avatar-box">
+                        <img src="artworks/icon_profile.png" alt="Profile" class="profile-avatar-img">
+                    </div>
+                    <div class="profile-user-info">
+                        <h2 class="profile-display-name">นักอ่านของ WriteLan</h2>
+                        <span class="profile-username">@writelan_reader</span>
+                    </div>
+                </div>
+
+                <!-- 2. กล่องสถิติ (พื้นหลังใช้ bg1.png) -->
+                <div class="profile-stats-card">
+                    <div class="stat-item">
+                        <div class="stat-icon-box">
+                            <img src="artworks/icon_book.png" alt="นิยายที่อ่าน" class="pixel-stat-icon">
+                        </div>
+                        <span class="stat-number">356</span>
+                        <span class="stat-label">นิยายที่อ่าน</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon-box">
+                            <img src="artworks/icon_heart.png" alt="รายการโปรด" class="pixel-stat-icon">
+                        </div>
+                        <span class="stat-number">128</span>
+                        <span class="stat-label">รายการโปรด</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon-box">
+                            <img src="artworks/icon_medal.png" alt="เหรียญตรา" class="pixel-stat-icon">
+                        </div>
+                        <span class="stat-number">42</span>
+                        <span class="stat-label">เหรียญตรา</span>
+                    </div>
+                </div>
+
+                <!-- 3. แบนเนอร์กิจกรรมพิเศษ (ใช้ cozycat.png) -->
+                <div class="special-event-banner" onclick="openProfileDetail()">
+                    <div class="event-left">
+                        <img src="artworks/cozycat.png" alt="Special Event" class="event-cat-img">
+                        <div class="event-text">
+                    <div class="event-right">
+                        <span>โปรไฟล์ของคุณ &gt;</span>
+                    </div>
+                </div>
+
+                <!-- 4. รายการเมนูหลัก -->
+                <div class="profile-menu-list">
+                    <button class="profile-menu-item" onclick="openMenuAction('เหรียญของฉัน')">
+                        <div class="menu-item-left">
+                            <span class="menu-item-icon">🪙</span>
+                            <span>เหรียญของฉัน</span>
+                        </div>
+                        <span class="arrow">&gt;</span>
+                    </button>
+
+                    <button class="profile-menu-item" onclick="openMenuAction('ประวัติการซื้อ')">
+                        <div class="menu-item-left">
+                            <span class="menu-item-icon">📦</span>
+                            <span>ประวัติการซื้อ</span>
+                        </div>
+                        <span class="arrow">&gt;</span>
+                    </button>
+
+                    <button class="profile-menu-item" onclick="openMenuAction('ตั้งค่าแอปพลิเคชั่น')">
+                        <div class="menu-item-left">
+                            <span class="menu-item-icon">⚙️</span>
+                            <span>ตั้งค่าแอปพลิเคชั่น</span>
+                        </div>
+                        <span class="arrow">&gt;</span>
+                    </button>
+
+                    <button class="profile-menu-item" onclick="openMenuAction('ตั้งค่าการแจ้งเตือน')">
+                        <div class="menu-item-left">
+                            <span class="menu-item-icon">🔔</span>
+                            <span>ตั้งค่าการแจ้งเตือน</span>
+                        </div>
+                        <span class="arrow">&gt;</span>
+                    </button>
+
+                    <button class="profile-menu-item" onclick="openMenuAction('ติดต่อเรา')">
+                        <div class="menu-item-left">
+                            <span class="menu-item-icon">✉️</span>
+                            <span>ติดต่อเรา</span>
+                        </div>
+                        <span class="arrow">&gt;</span>
+                    </button>
+                </div>
+
+                <!-- 5. ปุ่มออกจากระบบ -->
+                <div class="logout-container">
+                    <button class="logout-btn" onclick="handleLogout()">ออกจากระบบ</button>
+                </div>
+
+            </div>
+
     <script type="module" src="app.js"></script>
 </body>
 </html>

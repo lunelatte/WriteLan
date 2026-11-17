@@ -88,3 +88,39 @@ window.openSearch = function() {
 window.openNotifications = function() {
     alert("เปิดหน้าแจ้งเตือน");
 };
+
+// ฟังก์ชันสลับแท็บเมนูด้านล่าง
+window.switchTab = function(element, tabName) {
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    element.classList.add('active');
+
+    // จัดการการแสดงผลแต่ละหน้า
+    const homeSections = document.querySelectorAll('.banner-slider-container, .quick-menu, .novel-section');
+    const profilePage = document.getElementById('profile-page');
+
+    if (tabName === 'บัญชี') {
+        // ซ่อนหน้าแรก แสดงหน้าบัญชี
+        homeSections.forEach(sec => sec.style.display = 'none');
+        if (profilePage) profilePage.style.display = 'block';
+    } else {
+        // แสดงหน้าแรก ซ่อนหน้าบัญชี (สำหรับแท็บอื่นๆ ที่กำลังพัฒนาต่อ)
+        homeSections.forEach(sec => sec.style.display = '');
+        if (profilePage) profilePage.style.display = 'none';
+    }
+};
+
+window.openProfileDetail = function() {
+    alert("ไปยังหน้าโปรไฟล์ของคุณ");
+};
+
+window.openMenuAction = function(menuName) {
+    alert("เปิดเมนู: " + menuName);
+};
+
+window.handleLogout = function() {
+    if(confirm("คุณต้องการออกจากระบบใช่หรือไม่?")) {
+        alert("ออกจากระบบเรียบร้อยแล้ว");
+    }
+};
