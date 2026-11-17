@@ -1,4 +1,3 @@
-// นำเข้า Firebase (ถ้ายังใช้ตัวเชื่อมต่อเดิม นำ Firebase Config มาใส่ไว้ด้านบนนี้ได้เลยครับ)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
@@ -17,4 +16,16 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-console.log("WriteLan เริ่มต้นระบบใหม่สำเร็จเรียบร้อย!");
+// ฟังก์ชันสลับสีปุ่มเมนูด้านล่างเมื่อกดเลือก
+window.switchTab = function(element, tabName) {
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    element.classList.add('active');
+    console.log("เปิดหน้า:", tabName);
+};
+
+// ฟังก์ชันเมื่อกดปุ่มทางลัด 4 ปุ่มด้านบน
+window.selectMenu = function(menuName) {
+    console.log("เลือกเมนู:", menuName);
+};
