@@ -111,8 +111,8 @@ body {
 
 /* จัดกล่องไอคอนใหม่ให้พอดี ไม่โดนบีบ */
 .icon-box {
-    width: 38px;  /* ลดขนาดลงจากเดิม */
-    height: 38px; /* ลดขนาดลงจากเดิม */
+    width: 32px;  /* ลดขนาดลงจากเดิม */
+    height: 32px; /* ลดขนาดลงจากเดิม */
     background-color: transparent; /* เอาสีพื้นหลังฟ้าอ่อนออกให้โปร่งใส */
     border-radius: 12px;
     display: flex;
