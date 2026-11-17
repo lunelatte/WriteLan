@@ -150,7 +150,7 @@ body {
 .main-scroll-area {
     flex: 1;
     overflow-y: auto;
-    padding-bottom: 50px;
+    padding-bottom: 95px;
     background-color: var(--app-bg);
 }
 
@@ -389,7 +389,7 @@ body {
     transform: translateX(-50%);
     width: 100%;
     max-width: 480px;
-    height: 80px; /* ลดความสูงลงให้บางเฉียบกำลังดี */
+    height: px; /* ลดความสูงลงให้บางเฉียบกำลังดี */
     background-color: var(--nav-bg);
     border-top: 1px solid rgba(0,0,0,0.05);
     display: grid;
@@ -408,6 +408,7 @@ body {
     gap: 2px;
     color: var(--text-gray);
     cursor: pointer;
+    padding-bottom: 12px;
 }
 
 .nav-item svg {
