@@ -150,7 +150,7 @@ body {
 .main-scroll-area {
     flex: 1;
     overflow-y: auto;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
     background-color: var(--app-bg);
 }
 
