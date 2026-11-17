@@ -86,15 +86,7 @@ window.switchTab = function(element, tabName) {
 window.selectMenu = function(menuName) { console.log("เลือกเมนู:", menuName); };
 window.openSearch = function() { alert("เปิดหน้าค้นหานิยาย"); };
 window.openNotifications = function() { alert("เปิดหน้าแจ้งเตือน"); };
-window.openProfileDetail = function() {
-    const homeContent = document.getElementById('home-page-content');
-    const profilePage = document.getElementById('profile-page');
-    const userProfilePage = document.getElementById('user-profile-page');
-
-    if (homeContent) homeContent.style.display = 'none';
-    if (profilePage) profilePage.style.display = 'none';
-    if (userProfilePage) userProfilePage.style.display = 'flex';
-};
+window.openProfileDetail = function() { alert("เปิดหน้าบัญชี"); };
 window.openMenuAction = function(menuName) { alert("เปิดเมนู: " + menuName); };
 window.handleLogout = function() {
     if(confirm("คุณต้องการออกจากระบบใช่หรือไม่?")) {
