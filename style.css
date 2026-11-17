@@ -110,9 +110,8 @@ body {
 }
 
 .icon-box {
-    width: 42px;
-    height: 42px;
-    background-color: var(--light-teal-bg);
+    width: 45px;
+    height: 45px;
     border-radius: 12px;
     display: flex;
     align-items: center;
