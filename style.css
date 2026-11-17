@@ -389,7 +389,7 @@ body {
     transform: translateX(-50%);
     width: 100%;
     max-width: 480px;
-    height: 60px; /* ลดความสูงลงให้บางเฉียบกำลังดี */
+    height: 70px; /* ลดความสูงลงให้บางเฉียบกำลังดี */
     background-color: var(--nav-bg);
     border-top: 1px solid rgba(0,0,0,0.05);
     display: grid;
