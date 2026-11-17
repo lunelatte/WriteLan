@@ -188,12 +188,17 @@
     </div>
 
     <!-- หน้าบัญชี -->
+     <div class="main-scroll-area">
+            
+            <!-- ... (ส่วนของหน้าแรก banner-slider-container, quick-menu, novel-section เดิม) ... -->
+
+            <!-- หน้าบัญชี (วางไว้ต่อจาก </section> ของ novel-section แต่อยู่ก่อนปิด </div> ของ main-scroll-area) -->
             <div id="profile-page" class="page-view" style="display: none;">
                 
                 <!-- 1. ข้อมูลโปรไฟล์ส่วนตัว -->
                 <div class="profile-header-card">
                     <div class="profile-avatar-box">
-                        <img src="artworks/icon_profile.png" alt="Profile" class="profile-avatar-img">
+                        <img src="artworks/icon_proflie.png" alt="Profile" class="profile-avatar-img">
                     </div>
                     <div class="profile-user-info">
                         <h2 class="profile-display-name">นักอ่านของ WriteLan</h2>
@@ -201,7 +206,7 @@
                     </div>
                 </div>
 
-                <!-- 2. กล่องสถิติ (พื้นหลังใช้ bg1.png) -->
+                <!-- 2. กล่องสถิติ -->
                 <div class="profile-stats-card">
                     <div class="stat-item">
                         <div class="stat-icon-box">
@@ -226,15 +231,19 @@
                     </div>
                 </div>
 
-                <!-- 3. แบนเนอร์กิจกรรมพิเศษ (ใช้ cozycat.png) -->
+                <!-- 3. แบนเนอร์กิจกรรมพิเศษ (เช็กตรงนี้! ต้องมี </div> ปิดครบ 3 ตัวก่อนขึ้นกล่องเมนู) -->
                 <div class="special-event-banner" onclick="openProfileDetail()">
                     <div class="event-left">
                         <img src="artworks/cozycat.png" alt="Special Event" class="event-cat-img">
                         <div class="event-text">
+                            <h4>กิจกรรมพิเศษ</h4>
+                            <p>สะสมแต้ม รับรางวัลสุดพิเศษ!</p>
+                        </div>
+                    </div>
                     <div class="event-right">
                         <span>โปรไฟล์ของคุณ &gt;</span>
                     </div>
-                </div>
+                </div> <!-- <-- แท็กปิดกล่องสีฟ้าตรงนี้ที่หายไปครับ -->
 
                 <!-- 4. รายการเมนูหลัก -->
                 <div class="profile-menu-list">
@@ -284,8 +293,6 @@
                     <button class="logout-btn" onclick="handleLogout()">ออกจากระบบ</button>
                 </div>
 
-            </div>
+            </div> <!-- ปิด #profile-page -->
 
-    <script type="module" src="app.js"></script>
-</body>
-</html>
+        </div> <!-- ปิด .main-scroll-area -->
