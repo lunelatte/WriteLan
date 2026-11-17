@@ -384,7 +384,7 @@ body {
 /* 4. แถบเมนูด้านล่าง */
 .bottom-nav {
     position: fixed;
-    bottom: 6;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
