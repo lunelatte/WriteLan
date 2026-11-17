@@ -375,17 +375,17 @@ body {
 
 /* 4. แถบเมนูด้านล่าง */
 .bottom-nav {
-    position: absolute;
+    position: absolute; /* ลอยติดกับกรอบแอปด้านล่างสุด */
     bottom: 0;
     left: 0;
     right: 0;
-    height: 64px; /* ลดความสูงลงนิดหน่อยให้กะทัดรัด */
+    height: 64px;
     background-color: var(--nav-bg);
     border-top: 1px solid rgba(0,0,0,0.04);
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    padding: 6px 4px 14px 4px; /* เพิ่ม padding ด้านล่างให้ปุ่มไม่ชิดขอบเกินไป */
-    z-index: 20;
+    padding: 6px 4px 14px 4px;
+    z-index: 50; /* ให้อยู่ชั้นบนสุดเสมอ */
 }
 
 .nav-item {
