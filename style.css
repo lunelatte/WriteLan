@@ -110,19 +110,20 @@ body {
 }
 
 .icon-box {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     background-color: var(--light-teal-bg);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden; /* ป้องกันไม่ให้รูปล้นกล่อง */
+    padding: 6px; /* เพิ่ม padding เพื่อให้ไอคอนไม่ชิดขอบ */
 }
 
 .pixel-menu-icon {
-    width: 22px; /* กำหนดขนาดความกว้างให้พอดีกับปุ่ม */
-    height: 22px; /* กำหนดขนาดความสูง */
+    width: 100px; /* กำหนดขนาดความกว้างให้พอดีกับปุ่ม */
+    height: 100px; /* กำหนดขนาดความสูง */
     object-fit: contain;
     image-rendering: pixelated; /* คงความคมชัดแบบพิกเซลอาร์ต */
 }
