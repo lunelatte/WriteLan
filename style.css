@@ -109,22 +109,24 @@ body {
     transform: scale(0.95);
 }
 
+/* จัดกล่องไอคอนใหม่ให้พอดี ไม่โดนบีบ */
 .icon-box {
-    width: 45px;
-    height: 45px;
+    width: 46px;
+    height: 46px;
+    background-color: var(--light-teal-bg);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* ป้องกันไม่ให้รูปล้นกล่อง */
-    padding: 6px; /* เพิ่ม padding เพื่อให้ไอคอนไม่ชิดขอบ */
+    overflow: hidden;
 }
 
+/* บังคับรูปไอคอนให้แสดงขนาดพอดีเป๊ะ ไม่ยืดไม่เบี้ยว */
 .pixel-menu-icon {
-    width: 100px; /* กำหนดขนาดความกว้างให้พอดีกับปุ่ม */
-    height: 100px; /* กำหนดขนาดความสูง */
+    width: 24px;
+    height: 24px;
     object-fit: contain;
-    image-rendering: pixelated; /* คงความคมชัดแบบพิกเซลอาร์ต */
+    image-rendering: pixelated;
 }
 
 .icon-box svg {
