@@ -64,34 +64,36 @@ body {
 /* 1. แบนเนอร์ภาพแมวด้านบน */
 .hero-banner {
     width: 100%;
-    position: relative;
-    overflow: hidden;
+    background-color: #eaf8f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px 4px 16px; /* เติมพื้นที่รอบรูป */
 }
 
 .banner-img {
     width: 100%;
     height: auto;
-    max-height: 330px;
-    object-fit: cover;
+    max-height: 320px;
+    object-fit: contain; /* เปลี่ยนเป็น contain เพื่อให้เห็นรูปครบทุกส่วน ไม่โดนตัดขอบ */
     display: block;
-    border-bottom-left-radius: 24px;
-    border-bottom-right-radius: 24px;
+    border-radius: 16px;
 }
 
-/* 2. ปุ่มทางลัด 4 ปุ่ม (วางซ้อนทับขอบล่างของรูปเล็กน้อย) */
+/* 2. ย้ายบล็อกเมนู 4 ปุ่มลงมาอยู่ด้านล่างรูปภาพปกติ (ไม่บังแมวแล้ว!) */
 .quick-menu {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    padding: 0 16px;
-    margin-top: -32px;
+    padding: 12px 16px 4px 16px;
+    margin-top: 0; /* เอาค่าติดลบออก เพื่อให้มาอยู่ต่อจากรูปภาพพอดี */
     position: relative;
     z-index: 10;
 }
 
 .menu-card {
     background-color: #ffffff;
-    border: 1px solid #e6f4f3;
+    border: 1px solid #e1f5f3;
     border-radius: 16px;
     padding: 12px 4px;
     display: flex;
@@ -99,7 +101,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 6px;
-    box-shadow: 0 4px 12px rgba(23, 156, 149, 0.08);
+    box-shadow: 0 2px 8px rgba(23, 156, 149, 0.06);
     cursor: pointer;
     position: relative;
     transition: transform 0.15s ease;
