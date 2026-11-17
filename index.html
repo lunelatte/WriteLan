@@ -102,74 +102,91 @@
                 </section>
             </div>
 
-            <!-- ส่วนที่ 2: หน้าบัญชี -->
+            <!-- === ส่วนที่ 2: หน้าบัญชี (Profile Page) === -->
             <div id="profile-page" class="page-view" style="display: none; flex-direction: column; gap: 12px; padding: 12px 0;">
-                <div class="profile-header-card">
-                    <div class="profile-avatar-box">
-                        <img src="artworks/icon_profile.png" alt="Profile" class="profile-avatar-img">
-                    </div>
-                    <div class="profile-user-info">
-                        <h2 class="profile-display-name">นักอ่านของ WriteLan</h2>
-                        <span class="profile-username">@writelan_reader</span>
-                    </div>
-                </div>
-
-                <div class="profile-stats-card">
-                    <div class="stat-item">
-                        <div class="stat-icon-box"><img src="artworks/icon_book.png" alt="นิยายที่อ่าน" class="pixel-stat-icon"></div>
-                        <span class="stat-number">356</span>
-                        <span class="stat-label">นิยายที่อ่าน</span>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon-box"><img src="artworks/icon_heart.png" alt="รายการโปรด" class="pixel-stat-icon"></div>
-                        <span class="stat-number">128</span>
-                        <span class="stat-label">รายการโปรด</span>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon-box"><img src="artworks/icon_medal.png" alt="เหรียญตรา" class="pixel-stat-icon"></div>
-                        <span class="stat-number">42</span>
-                        <span class="stat-label">เหรียญตรา</span>
-                    </div>
-                </div>
-
-                <div class="special-event-banner" onclick="openProfileDetail()">
-                    <div class="event-left">
-                        <img src="artworks/cozycat.png" alt="Special Event" class="event-cat-img">
-                        <div class="event-text">
-                            <h4>กิจกรรมพิเศษ</h4>
-                            <p>สะสมแต้ม รับรางวัลสุดพิเศษ!</p>
+                
+                <!-- 1. กล่องรวมโปรไฟล์และสถิติ (ใช้ bg1.png และมีเส้นคั่น) -->
+                <div class="profile-combined-card">
+                    <div class="profile-header-inner">
+                        <div class="profile-avatar-box">
+                            <img src="artworks/icon_proflie.png" alt="Profile" class="profile-avatar-img">
+                        </div>
+                        <div class="profile-user-info">
+                            <h2 class="profile-display-name">นักอ่านของ WriteLan</h2>
+                            <span class="profile-username">@writelan_reader</span>
                         </div>
                     </div>
-                    <div class="event-right">
+
+                    <div class="profile-stats-inner">
+                        <div class="stat-item">
+                            <div class="stat-icon-box"><img src="artworks/icon_book.png" alt="นิยายที่อ่าน" class="pixel-stat-icon"></div>
+                            <span class="stat-number">356</span>
+                            <span class="stat-label">นิยายที่อ่าน</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <div class="stat-icon-box"><img src="artworks/icon_heart.png" alt="รายการโปรด" class="pixel-stat-icon"></div>
+                            <span class="stat-number">128</span>
+                            <span class="stat-label">รายการโปรด</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <div class="stat-icon-box"><img src="artworks/icon_medal.png" alt="เหรียญตรา" class="pixel-stat-icon"></div>
+                            <span class="stat-number">42</span>
+                            <span class="stat-label">เหรียญตรา</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. แบนเนอร์กิจกรรมพิเศษ (ใช้รูป cozycat.png เป็นพื้นหลัง เหลือแค่คำว่า โปรไฟล์ของคุณ) -->
+                <div class="special-event-banner-img" onclick="openProfileDetail()">
+                    <div class="event-right-btn">
                         <span>โปรไฟล์ของคุณ &gt;</span>
                     </div>
                 </div>
 
+                <!-- 3. รายการเมนูหลัก (เปลี่ยนเป็นไอคอนเวกเตอร์สะอาดตา ไม่มีอีโมจิ) -->
                 <div class="profile-menu-list">
                     <button class="profile-menu-item" onclick="openMenuAction('เหรียญของฉัน')">
-                        <div class="menu-item-left"><span class="menu-item-icon">🪙</span><span>เหรียญของฉัน</span></div>
+                        <div class="menu-item-left">
+                            <svg class="vector-menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 6v12M15 9.5H10.5A1.5 1.5 0 0 0 9 11v0a1.5 1.5 0 0 0 1.5 1.5h3A1.5 1.5 0 0 1 15 14v0a1.5 1.5 0 0 1-1.5 1.5H9"></path></svg>
+                            <span>เหรียญของฉัน</span>
+                        </div>
                         <span class="arrow">&gt;</span>
                     </button>
                     <button class="profile-menu-item" onclick="openMenuAction('ประวัติการซื้อ')">
-                        <div class="menu-item-left"><span class="menu-item-icon">📦</span><span>ประวัติการซื้อ</span></div>
+                        <div class="menu-item-left">
+                            <svg class="vector-menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8l-9-5-9 5m18 0l-9 5-9-5m18 0v8l-9 5-9-5V8"></path></svg>
+                            <span>ประวัติการซื้อ</span>
+                        </div>
                         <span class="arrow">&gt;</span>
                     </button>
                     <button class="profile-menu-item" onclick="openMenuAction('ตั้งค่าแอปพลิเคชั่น')">
-                        <div class="menu-item-left"><span class="menu-item-icon">⚙️</span><span>ตั้งค่าแอปพลิเคชั่น</span></div>
+                        <div class="menu-item-left">
+                            <svg class="vector-menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                            <span>ตั้งค่าแอปพลิเคชั่น</span>
+                        </div>
                         <span class="arrow">&gt;</span>
                     </button>
                     <button class="profile-menu-item" onclick="openMenuAction('ตั้งค่าการแจ้งเตือน')">
-                        <div class="menu-item-left"><span class="menu-item-icon">🔔</span><span>ตั้งค่าการแจ้งเตือน</span></div>
+                        <div class="menu-item-left">
+                            <svg class="vector-menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                            <span>ตั้งค่าการแจ้งเตือน</span>
+                        </div>
                         <span class="arrow">&gt;</span>
                     </button>
                     <button class="profile-menu-item" onclick="openMenuAction('ติดต่อเรา')">
-                        <div class="menu-item-left"><span class="menu-item-icon">✉️</span><span>ติดต่อเรา</span></div>
+                        <div class="menu-item-left">
+                            <svg class="vector-menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span>ติดต่อเรา</span>
+                        </div>
                         <span class="arrow">&gt;</span>
                     </button>
                 </div>
 
+                <!-- 4. ปุ่มออกจากระบบ (มีพื้นหลังสีขาวตามต้องการ) -->
                 <div class="logout-container">
-                    <button class="logout-btn" onclick="handleLogout()">ออกจากระบบ</button>
+                    <button class="logout-btn-filled" onclick="handleLogout()">ออกจากระบบ</button>
                 </div>
             </div>
 

@@ -649,3 +649,110 @@ body {
 .logout-btn:active {
     background-color: rgba(239, 68, 68, 0.1);
 }
+
+/* --- ปรับแต่งหน้าบัญชีตามรีเควสใหม่ --- */
+
+/* กล่องรวมโปรไฟล์และสถิติ (ใช้ bg1.png เป็นพื้นหลัง) */
+.profile-combined-card {
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('artworks/bg1.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 18px;
+    padding: 16px;
+    margin: 0 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.profile-header-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* ส่วนสถิติพร้อมเส้นคั่นกลาง */
+.profile-stats-inner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding-top: 12px;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 32px;
+    background-color: rgba(0,0,0,0.08);
+}
+
+/* แบนเนอร์กิจกรรมพิเศษ (ใช้ cozycat.png พื้นหลัง และเหลือแค่ปุ่มขวา) */
+.special-event-banner-img {
+    background: url('artworks/cozycat.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+    height: 90px;
+    margin: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.special-event-banner-img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15); /* เพิ่มเลเยอร์มืดเล็กน้อยให้ปุ่มเด่นชัดขึ้น */
+}
+
+.event-right-btn {
+    position: relative;
+    z-index: 1;
+}
+
+.event-right-btn span {
+    font-size: 13px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-dark);
+    padding: 6px 12px;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* เวกเตอร์ไอคอนสำหรับเมนู */
+.vector-menu-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--text-dark);
+}
+
+/* ปุ่มออกจากระบบแบบมีพื้นหลังสีขาว */
+.logout-container {
+    padding: 4px 16px 20px 16px;
+}
+
+.logout-btn-filled {
+    width: 100%;
+    background-color: var(--card-bg); /* พื้นหลังสีขาวตามธีมการ์ด */
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    border-radius: 14px;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.08);
+    transition: background 0.2s;
+}
+
+.logout-btn-filled:active {
+    background-color: rgba(239, 68, 68, 0.1);
+}
