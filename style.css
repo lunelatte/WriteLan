@@ -110,14 +110,21 @@ body {
 }
 
 .icon-box {
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     background-color: var(--light-teal-bg);
-    color: var(--primary-teal);
-    border-radius: 10px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden; /* ป้องกันไม่ให้รูปล้นกล่อง */
+}
+
+.pixel-menu-icon {
+    width: 22px; /* กำหนดขนาดความกว้างให้พอดีกับปุ่ม */
+    height: 22px; /* กำหนดขนาดความสูง */
+    object-fit: contain;
+    image-rendering: pixelated; /* คงความคมชัดแบบพิกเซลอาร์ต */
 }
 
 .icon-box svg {
