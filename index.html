@@ -4,23 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WriteLan</title>
-    <!-- ลิงก์เรียกไฟล์ Manifest (สำหรับ Android / PWA ทั่วไป) -->
-    <link rel="manifest" href="manifest.json">
-    <!-- ลิงก์ไอคอนสำหรับ iPhone / iPad (iOS) -->
-    <link rel="apple-touch-icon" href="artworks/icon_web.png">
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="theme-teal">
 
     <div id="app-container">
+        
+        <!-- แถบบนสุด (ชื่อเว็บ + เมนูด้านขวา: ค้นหา, เปลี่ยนธีม, แจ้งเตือน) -->
+        <header class="top-nav-bar">
+            <div class="brand-title">WriteLan <span class="sparkle">✨</span></div>
+            <div class="top-actions">
+                <button class="action-btn" onclick="openSearch()" title="ค้นหา">
+                    <img src="artworks/icon_search.png" alt="Search" class="top-icon">
+                </button>
+                <!-- ปุ่มเปลี่ยนธีม (คลิกเพื่อวนลูปเปลี่ยน 4 โหมด) -->
+                <button class="action-btn" id="theme-toggle-btn" onclick="cycleTheme()" title="เปลี่ยนธีม">
+                    <span id="theme-icon">☁️</span>
+                </button>
+                <button class="action-btn" onclick="openNotifications()" title="แจ้งเตือน">
+                    <img src="artworks/icon_bell.png" alt="Notifications" class="top-icon">
+                </button>
+            </div>
+        </header>
+
         <div class="main-scroll-area">
             
-            <!-- 1. แบนเนอร์รูปภาพด้านบน -->
-            <header class="hero-banner">
-                <img src="artworks/home-bg.png" alt="WriteLan Banner" class="banner-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\'><rect width=\'100%\' height=\'100%\' fill=\'%23e0f2fe\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'0369a1\' font-family=\'sans-serif\' font-size=\'16px\'>กรุณาตรวจสอบชื่อไฟล์ home-bg.png</text></svg>'">
-            </header>
+            <!-- 1. แบนเนอร์นิยายขอบมน เลื่อนอัตโนมัติทุก 5 วินาที -->
+            <section class="banner-slider-container">
+                <div class="slider-track" id="bannerTrack">
+                    <div class="slide-item"><img src="artworks/cozycat.png" alt="Banner 1"></div>
+                    <div class="slide-item"><img src="artworks/bg1.png" alt="Banner 2"></div>
+                    <div class="slide-item"><img src="artworks/bg2.png" alt="Banner 3"></div>
+                </div>
+                <!-- จุดสไลด์บอกหน้า -->
+                <div class="banner-dots" id="bannerDots">
+                    <span class="b-dot active" onclick="currentSlide(0)"></span>
+                    <span class="b-dot" onclick="currentSlide(1)"></span>
+                    <span class="b-dot" onclick="currentSlide(2)"></span>
+                </div>
+            </section>
 
-            <!-- 2. เมนูทางลัด 4 ปุ่ม (เปลี่ยนเป็นรูปไอคอนพิกเซลจากโฟลเดอร์ artworks) -->
+            <!-- 2. เมนูทางลัด 4 ปุ่ม (ไม่ทับรูป เล็กกระทัดรัด ไม่มีพื้นหลัง) -->
             <section class="quick-menu">
                 <button class="menu-card" onclick="selectMenu('หมวดหมู่')">
                     <div class="icon-box">
@@ -37,8 +64,9 @@
                 </button>
 
                 <button class="menu-card" onclick="selectMenu('ใหม่ล่าสุด')">
+                    <span class="badge-new">NEW</span>
                     <div class="icon-box">
-                        <img src="artworks/icon_energy.png" alt="ใหม่ล่าสุด" class="pixel-menu-icon">
+                        <img src="artworks/icon_star.png" alt="ใหม่ล่าสุด" class="pixel-menu-icon">
                     </div>
                     <span>ใหม่ล่าสุด</span>
                 </button>
@@ -51,33 +79,61 @@
                 </button>
             </section>
 
-            <!-- 3. ส่วนหมวดหมู่ "ใหม่มาแรง" -->
+            <!-- 3. ส่วน "นิยายแนะนำ" (ใช้ icon_star นำหน้า + รายการตัวอย่างเรียงลงมา) -->
             <section class="novel-section">
                 <div class="section-header">
-                    <h2>🔥 ใหม่มาแรง</h2>
+                    <h2>
+                        <img src="artworks/icon_star.png" alt="Star" class="section-heading-icon"> 
+                        นิยายแนะนำ
+                    </h2>
                     <a href="#" class="view-all">ดูทั้งหมด &gt;</a>
                 </div>
 
-                <div class="featured-card" id="featured-novel">
-                    <div class="novel-cover-placeholder">
-                        <span>ปกนิยาย</span>
+                <!-- รายการนิยายตัวอย่างที่ 1 -->
+                <div class="featured-card">
+                    <div class="novel-cover-placeholder" style="background: linear-gradient(135deg, #a5f3fc 0%, #38bdf8 100%);">
+                        <span>ปก 1</span>
                     </div>
                     <div class="novel-info">
-                        <h3 class="novel-title">หัวใจดวงนี้มีแค่เธอ</h3>
-                        <p class="novel-desc">เมื่อโชคชะตาพาให้เรากลับมาเจอกันอีกครั้ง... ในวันที่ทุกอย่างเปลี่ยนไป</p>
+                        <h3 class="novel-title">พ่ายรักมาเฟียร้าย</h3>
+                        <p class="novel-desc">เมื่อความรักต้องแลกด้วยหัวใจของเธอเอง... เรื่องราวสุดเข้มข้นที่จะทำให้คุณวางไม่ลง</p>
                         <div class="novel-meta">
-                            <span class="likes">♡ 392K</span>
+                            <span class="likes">♡ 510K</span>
                             <span class="genre-tag">โรแมนติก</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="carousel-dots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
+                <!-- รายการนิยายตัวอย่างที่ 2 -->
+                <div class="featured-card">
+                    <div class="novel-cover-placeholder" style="background: linear-gradient(135deg, #fbcfe8 100%, #f472b6 100%);">
+                        <span>ปก 2</span>
+                    </div>
+                    <div class="novel-info">
+                        <h3 class="novel-title">เวทมนตร์รักฉบับอลวน</h3>
+                        <p class="novel-desc">ท่านจอมมารหน้าตายกับบาทหลวงฝึกหัดผู้มีพลังวิเศษรั่วไหล การผจญภัยปนความฟินจึงเริ่มต้นขึ้น</p>
+                        <div class="novel-meta">
+                            <span class="likes">♡ 280K</span>
+                            <span class="genre-tag">แฟนตาซี</span>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- รายการนิยายตัวอย่างที่ 3 -->
+                <div class="featured-card">
+                    <div class="novel-cover-placeholder" style="background: linear-gradient(135deg, #fed7aa 100%, #fb923c 100%);">
+                        <span>ปก 3</span>
+                    </div>
+                    <div class="novel-info">
+                        <h3 class="novel-title">วันสลักโลกันตร์</h3>
+                        <p class="novel-desc">ย้อนเวลากลับมาแก้แค้นในร่างของคุณชายรองผู้ถูกเนรเทศ เกมนี้ใครคือผู้ล่าตัวจริง</p>
+                        <div class="novel-meta">
+                            <span class="likes">♡ 195K</span>
+                            <span class="genre-tag">แอคชั่น</span>
+                        </div>
+                    </div>
+                </div>
+
             </section>
 
         </div>

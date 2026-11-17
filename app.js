@@ -16,7 +16,59 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// ฟังก์ชันสลับสีปุ่มเมนูด้านล่างเมื่อกดเลือก
+// 1. ระบบแบนเนอร์เลื่อนอัตโนมัติทุกๆ 5 วินาที
+let currentBannerIndex = 0;
+const totalSlides = 3;
+
+function showSlide(index) {
+    const track = document.getElementById('bannerTrack');
+    const dots = document.querySelectorAll('.b-dot');
+    if (!track) return;
+    
+    currentBannerIndex = (index + totalSlides) % totalSlides;
+    track.style.transform = `translateX(-${currentBannerIndex * 33.333}%)`;
+    
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentBannerIndex);
+    });
+}
+
+window.currentSlide = function(index) {
+    showSlide(index);
+}
+
+// ตั้งเวลาเปลี่ยนสไลด์ทุก 5 วินาที
+setInterval(() => {
+    showSlide(currentBannerIndex + 1);
+}, 5000);
+
+
+// 2. ระบบสลับธีมสี 4 โหมด (☁️ -> ☕️ -> 🌷 -> 🌙)
+const themes = [
+    { class: 'theme-teal', icon: '☁️' },
+    { class: 'theme-coffee', icon: '☕️' },
+    { class: 'theme-pink', icon: '🌷' },
+    { class: 'theme-dark', icon: '🌙' }
+];
+let currentThemeIdx = 0;
+
+window.cycleTheme = function() {
+    currentThemeIdx = (currentThemeIdx + 1) % themes.length;
+    const body = document.body;
+    const themeIcon = document.getElementById('theme-icon');
+    
+    // ลบธีมเก่าออกทั้งหมด
+    themes.forEach(t => body.classList.remove(t.class));
+    
+    // ใส่ธีมใหม่
+    body.classList.add(themes[currentThemeIdx].class);
+    if (themeIcon) {
+        themeIcon.textContent = themes[currentThemeIdx].icon;
+    }
+};
+
+
+// 3. ฟังก์ชันควบคุมการคลิกเมนูต่างๆ
 window.switchTab = function(element, tabName) {
     document.querySelectorAll('.nav-item').forEach(item => {
         item.classList.remove('active');
@@ -25,7 +77,14 @@ window.switchTab = function(element, tabName) {
     console.log("เปิดหน้า:", tabName);
 };
 
-// ฟังก์ชันเมื่อกดปุ่มทางลัด 4 ปุ่มด้านบน
 window.selectMenu = function(menuName) {
     console.log("เลือกเมนู:", menuName);
+};
+
+window.openSearch = function() {
+    alert("เปิดหน้าค้นหานิยาย");
+};
+
+window.openNotifications = function() {
+    alert("เปิดหน้าแจ้งเตือน");
 };

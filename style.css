@@ -1,10 +1,42 @@
-:root {
-    --primary-teal: #179c95;
-    --light-teal-bg: #eaf8f7;
-    --soft-mint: #d7f1ef;
+/* ระบบตัวแปรธีมสี 4 โหมด */
+body.theme-teal {
+    --primary-color: #179c95;
+    --light-bg: #eaf8f7;
+    --card-bg: #ffffff;
     --text-dark: #1e293b;
     --text-gray: #64748b;
     --bg-outer: #f1f5f9;
+    --header-bg: #ffffff;
+}
+
+body.theme-coffee {
+    --primary-color: #a3704c;
+    --light-bg: #fdf6f0;
+    --card-bg: #ffffff;
+    --text-dark: #3e2723;
+    --text-gray: #8d6e63;
+    --bg-outer: #efebe9;
+    --header-bg: #ffffff;
+}
+
+body.theme-pink {
+    --primary-color: #db2777;
+    --light-bg: #fdf2f8;
+    --card-bg: #ffffff;
+    --text-dark: #831843;
+    --text-gray: #9d174d;
+    --bg-outer: #fce7f3;
+    --header-bg: #ffffff;
+}
+
+body.theme-dark {
+    --primary-color: #38bdf8;
+    --light-bg: #1e293b;
+    --card-bg: #0f172a;
+    --text-dark: #f8fafc;
+    --text-gray: #94a3b8;
+    --bg-outer: #020617;
+    --header-bg: #0f172a;
 }
 
 * {
@@ -13,6 +45,7 @@
     padding: 0;
     font-family: 'Prompt', sans-serif;
     -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -23,17 +56,16 @@ body {
     min-height: 100vh;
 }
 
-/* กรอบแอปหลัก (มือถือเต็มจอ / คอมอยู่ตรงกลางเหมือนแอป) */
 #app-container {
     width: 100%;
     max-width: 480px;
     height: 100vh;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
 }
 
 @media (min-width: 600px) {
@@ -45,61 +77,143 @@ body {
         height: 90vh;
         max-height: 850px;
         border-radius: 28px;
-        border: 1px solid #e2e8f0;
+        border: 1px solid rgba(0,0,0,0.1);
     }
+}
+
+/* แถบด้านบนสุด (ชื่อเว็บ + ปุ่มไอคอน) */
+.top-nav-bar {
+    height: 56px;
+    background-color: var(--header-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    z-index: 30;
+}
+
+.brand-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.top-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: var(--light-bg);
+}
+
+.top-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+#theme-icon {
+    font-size: 16px;
 }
 
 .main-scroll-area {
     flex: 1;
     overflow-y: auto;
     padding-bottom: 85px;
-    background: linear-gradient(180deg, #dff4f2 0%, #ffffff 45%);
 }
 
-/* ซ่อน Scrollbar ให้ดูเนียนเหมือนแอป */
 .main-scroll-area::-webkit-scrollbar {
     display: none;
 }
 
-/* 1. แบนเนอร์ภาพแมวด้านบน */
-.hero-banner {
-    width: 100%;
-    position: relative;
+/* 1. แบนเนอร์สไลด์อัตโนมัติขอบมน */
+.banner-slider-container {
+    width: calc(100% - 32px);
+    margin: 14px auto 0 auto;
+    height: 180px;
+    border-radius: 18px;
     overflow: hidden;
+    position: relative;
+    background-color: var(--light-bg);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.banner-img {
+.slider-track {
+    display: flex;
+    width: 300%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide-item {
+    width: 33.333%;
+    height: 100%;
+}
+
+.slide-item img {
     width: 100%;
-    height: auto;
-    max-height: 330px;
+    height: 100%;
     object-fit: cover;
     display: block;
-    border-bottom-left-radius: 24px;
-    border-bottom-right-radius: 24px;
 }
 
-/* 2. ปุ่มทางลัด 4 ปุ่ม (วางซ้อนทับขอบล่างของรูปเล็กน้อย) */
+.banner-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+}
+
+.b-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.6);
+    cursor: pointer;
+}
+
+.b-dot.active {
+    background-color: #ffffff;
+    width: 14px;
+    border-radius: 4px;
+}
+
+/* 2. เมนูทางลัด 4 ปุ่ม */
 .quick-menu {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    padding: 0 16px;
-    margin-top: -32px;
-    position: relative;
-    z-index: 10;
+    padding: 14px 16px 4px 16px;
 }
 
 .menu-card {
-    background-color: #ffffff;
-    border: 1px solid #e6f4f3;
+    background-color: var(--card-bg);
+    border: 1px solid rgba(0,0,0,0.05);
     border-radius: 16px;
-    padding: 12px 4px;
+    padding: 10px 4px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 6px;
-    box-shadow: 0 4px 12px rgba(23, 156, 149, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
     cursor: pointer;
     position: relative;
     transition: transform 0.15s ease;
@@ -109,29 +223,20 @@ body {
     transform: scale(0.95);
 }
 
-/* จัดกล่องไอคอนใหม่ให้พอดี ไม่โดนบีบ */
 .icon-box {
-    width: 32px;  /* ลดขนาดลงจากเดิม */
-    height: 32px; /* ลดขนาดลงจากเดิม */
-    background-color: transparent; /* เอาสีพื้นหลังฟ้าอ่อนออกให้โปร่งใส */
-    border-radius: 12px;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
 
-/* บังคับรูปไอคอนให้แสดงขนาดพอดีเป๊ะ ไม่ยืดไม่เบี้ยว */
 .pixel-menu-icon {
     width: 26px;
     height: 26px;
     object-fit: contain;
     image-rendering: pixelated;
-}
-
-.icon-box svg {
-    width: 20px;
-    height: 20px;
 }
 
 .menu-card span {
@@ -142,66 +247,76 @@ body {
 
 .badge-new {
     position: absolute;
-    top: -6px;
-    right: -4px;
-    background-color: var(--primary-teal);
+    top: -4px;
+    right: -2px;
+    background-color: var(--primary-color);
     color: #ffffff !important;
     font-size: 9px !important;
     font-weight: 700 !important;
-    padding: 2px 6px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 2px 5px;
+    border-radius: 8px;
 }
 
-/* 3. ส่วนหมวดหมู่ แฟนฟิคชั่น */
+/* 3. ส่วนนิยายแนะนำ */
 .novel-section {
-    padding: 24px 18px 10px;
+    padding: 16px 16px 10px;
 }
 
 .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .section-header h2 {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.section-heading-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    image-rendering: pixelated;
 }
 
 .view-all {
     font-size: 13px;
-    color: var(--primary-teal);
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 500;
 }
 
-/* การ์ดนิยายเด่น */
+/* การ์ดนิยาย */
 .featured-card {
-    background-color: #ffffff;
-    border-radius: 18px;
-    padding: 12px;
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 10px;
     display: flex;
-    gap: 14px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-    border: 1px solid #f1f5f9;
+    gap: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0,0,0,0.05);
+    margin-bottom: 12px;
     cursor: pointer;
 }
 
 .novel-cover-placeholder {
-    width: 115px;
-    height: 145px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #a5f3fc 0%, #fbcfe8 100%);
+    width: 95px;
+    height: 125px;
+    border-radius: 10px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #475569;
+    color: #ffffff;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
 .novel-info {
@@ -213,19 +328,18 @@ body {
 }
 
 .novel-title {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     line-height: 1.3;
     color: var(--text-dark);
-    margin-bottom: 6px;
 }
 
 .novel-desc {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-gray);
-    line-height: 1.45;
+    line-height: 1.4;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -234,54 +348,32 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
 }
 
 .likes {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-gray);
     font-weight: 500;
 }
 
 .genre-tag {
-    background-color: var(--light-teal-bg);
-    color: var(--primary-teal);
+    background-color: var(--light-bg);
+    color: var(--primary-color);
     font-size: 11px;
     font-weight: 500;
-    padding: 3px 10px;
-    border-radius: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
 }
 
-/* จุดไข่ปลาสไลด์ */
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    margin-top: 14px;
-}
-
-.dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: #cbd5e1;
-}
-
-.dot.active {
-    background-color: var(--primary-teal);
-    width: 14px;
-    border-radius: 4px;
-}
-
-/* 4. แถบเมนูนำทางด้านล่าง */
+/* 4. แถบเมนูด้านล่าง */
 .bottom-nav {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 68px;
-    background-color: #ffffff;
-    border-top: 1px solid #f1f5f9;
+    background-color: var(--header-bg);
+    border-top: 1px solid rgba(0,0,0,0.05);
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     padding: 6px 4px;
@@ -296,9 +388,8 @@ body {
     align-items: center;
     justify-content: center;
     gap: 4px;
-    color: #94a3b8;
+    color: var(--text-gray);
     cursor: pointer;
-    transition: color 0.15s;
 }
 
 .nav-item svg {
@@ -312,5 +403,5 @@ body {
 }
 
 .nav-item.active {
-    color: var(--primary-teal);
+    color: var(--primary-color);
 }
