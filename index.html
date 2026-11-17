@@ -2,43 +2,31 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#60d5f8">
-    <title>WriteLan - Pixel Novel PWA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WriteLan - Pixel Novel</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
 </head>
 <body>
 
-    <!-- 1. หน้าแรก (Welcome Screen) แสดงภาพพิกเซล เมื่อคลิกที่รูปจะเข้าแอป -->
-    <div id="welcome-screen" class="screen">
-        <div class="welcome-content" id="welcome-click-area" style="cursor: pointer;">
-            <img src="artworks/welcome-bg.png" alt="WriteLan Pixel Art" class="welcome-img">
-        </div>
-    </div>
-
-    <!-- 2. หน้าหลักของแอป (ซ่อนไว้ก่อนจนกว่าจะล็อกอินสำเร็จ) -->
-    <div id="main-app-screen" class="screen" style="display: none;">
-        <header>
+    <!-- หน้าแรกของแอป (แสดงผลทันทีที่เปิดเว็บ รองรับทั้งมือถือและคอม) -->
+    <div id="app-container">
+        <header class="app-header">
             <h1>📖 WriteLan Pixel Novel</h1>
-            <div id="auth-container">
-                <button id="logout-btn" class="pixel-btn-small">ออกจากระบบ</button>
-            </div>
+            <p>ยินดีต้อนรับสู่นิยายพิกเซลของคุณ</p>
         </header>
 
-        <main>
-            <section id="novel-list-section">
+        <main class="app-main">
+            <section class="book-shelf">
                 <h2>ชั้นหนังสือนิยาย</h2>
-                <div id="novels-container">
+                <div id="novels-list">
                     <!-- รายการนิยายจะแสดงที่นี่ -->
+                    <p class="loading-text">กำลังโหลดชั้นหนังสือ...</p>
                 </div>
             </section>
         </main>
     </div>
 
-    <!-- เชื่อมต่อไฟล์ JavaScript หลัก -->
+    <!-- เชื่อมต่อระบบ JavaScript และ Firebase -->
     <script type="module" src="app.js"></script>
 </body>
 </html>
