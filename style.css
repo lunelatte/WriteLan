@@ -405,10 +405,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2px;
+    gap: 5px;
     color: var(--text-gray);
     cursor: pointer;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
 }
 
 .nav-item svg {
