@@ -66,13 +66,14 @@ body {
 #app-container {
     width: 100%;
     max-width: 480px;
-    height: 100vh;
+    height: 100vh;  /* สำรองไว้เผื่อเบราว์เซอร์รุ่นเก่า */
+    height: 100dvh; /* พระเอกของเรา: คำนวณความสูงจอมือถือจริง ไม่ทะลุขอบล่าง */
     background-color: var(--app-bg);
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: hidden;
-    padding-top: env(safe-area-inset-top); /* ดันเนื้อหาลงมาพ้นติ่งนาฬิกา แต่พื้นหลังทะลุขึ้นไป */
+    padding-top: env(safe-area-inset-top);
 }
 
 @media (min-width: 600px) {
@@ -87,6 +88,13 @@ body {
         border-radius: 28px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         padding-top: 0;
+    }
+    .bottom-nav {
+        position: absolute;
+        left: 0;
+        transform: none;
+        height: 68px;
+        padding: 6px 4px;
     }
 }
 
@@ -142,7 +150,7 @@ body {
 .main-scroll-area {
     flex: 1;
     overflow-y: auto;
-    padding-bottom: 85px;
+    padding-bottom: 95px;
     background-color: var(--app-bg);
 }
 
@@ -375,17 +383,19 @@ body {
 
 /* 4. แถบเมนูด้านล่าง */
 .bottom-nav {
-    position: absolute; /* ลอยติดกับกรอบแอปด้านล่างสุด */
+    position: fixed; /* บังคับลอยติดหน้าจอตลอดเวลา */
     bottom: 0;
-    left: 0;
-    right: 0;
-    height: 64px;
+    left: 50%;
+    transform: translateX(-50%); /* จัดให้อยู่กึ่งกลางเสมอ */
+    width: 100%;
+    max-width: 480px;
+    height: calc(64px + env(safe-area-inset-bottom)); /* บวกความสูงแถบขีดด้านล่าง iPhone อัตโนมัติ */
     background-color: var(--nav-bg);
     border-top: 1px solid rgba(0,0,0,0.04);
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    padding: 6px 4px 14px 4px;
-    z-index: 50; /* ให้อยู่ชั้นบนสุดเสมอ */
+    padding: 8px 4px calc(10px + env(safe-area-inset-bottom)) 4px;
+    z-index: 999; /* ให้อยู่ชั้นบนสุด ไม่มีอะไรมาบังได้ */
 }
 
 .nav-item {
