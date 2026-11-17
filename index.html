@@ -7,25 +7,19 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="theme-color" id="meta-theme-color" content="#f2fbfa">
     <title>WriteLan</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="artworks/icon_web.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="theme-teal">
 
     <div id="app-container">
         
-        <!-- แถบบนสุด (ชื่อเว็บ + เมนูด้านขวา: ค้นหา, เปลี่ยนธีม, แจ้งเตือน) -->
+        <!-- แถบบนสุด -->
         <header class="top-nav-bar">
-            <div class="brand-title">WriteLan</span></div>
+            <div class="brand-title">WriteLan <span class="sparkle">✨</span></div>
             <div class="top-actions">
                 <button class="action-btn" onclick="openSearch()" title="ค้นหา">
                     <img src="artworks/icon_search.png" alt="Search" class="top-icon">
                 </button>
-                <!-- ปุ่มเปลี่ยนธีม (คลิกเพื่อวนลูปเปลี่ยน 4 โหมด) -->
                 <button class="action-btn" id="theme-toggle-btn" onclick="cycleTheme()" title="เปลี่ยนธีม">
                     <span id="theme-icon">☁️</span>
                 </button>
@@ -35,11 +29,11 @@
             </div>
         </header>
 
+        <!-- พื้นที่เลื่อนเนื้อหา -->
         <div class="main-scroll-area">
             
-            <!-- === ส่วนที่ 1: หน้าแรก (Home Content) === -->
+            <!-- ส่วนที่ 1: หน้าแรก -->
             <div id="home-page-content">
-                <!-- แบนเนอร์สไลด์ -->
                 <section class="banner-slider-container">
                     <div class="slider-track" id="bannerTrack">
                         <div class="slide-item"><img src="artworks/cozycat.png" alt="Banner 1"></div>
@@ -53,7 +47,6 @@
                     </div>
                 </section>
 
-                <!-- เมนูทางลัด 4 ปุ่ม -->
                 <section class="quick-menu">
                     <button class="menu-card" onclick="selectMenu('หมวดหมู่')">
                         <div class="icon-box"><img src="artworks/icon_book.png" alt="หมวดหมู่" class="pixel-menu-icon"></div>
@@ -65,7 +58,7 @@
                     </button>
                     <button class="menu-card" onclick="selectMenu('ใหม่ล่าสุด')">
                         <span class="badge-new">NEW</span>
-                        <div class="icon-box"><img src="artworks/icon_star.png" alt="ใหม่ล่าสุด" class="pixel-menu-icon"></div>
+                        <div class="icon-box"><img src="artworks/icon_energy.png" alt="ใหม่ล่าสุด" class="pixel-menu-icon"></div>
                         <span>ใหม่ล่าสุด</span>
                     </button>
                     <button class="menu-card" onclick="selectMenu('กิจกรรม')">
@@ -74,47 +67,43 @@
                     </button>
                 </section>
 
-                <!-- นิยายแนะนำ (ครบทุกเรื่องเหมือนเดิมแล้วครับ) -->
                 <section class="novel-section">
                     <div class="section-header">
-                        <h2><img src="artworks/icon_star.png" alt="Star" class="section-heading-icon"> นิยายแนะนำ</h2>
+                        <h2><img src="artworks/icon_tree.png" alt="Star" class="section-heading-icon"> นิยายแนะนำ</h2>
                         <a href="#" class="view-all">ดูทั้งหมด &gt;</a>
                     </div>
-                    
                     <div class="featured-card">
                         <div class="novel-cover-placeholder" style="background: linear-gradient(135deg, #a5f3fc 0%, #38bdf8 100%);"><span>ปก 1</span></div>
                         <div class="novel-info">
                             <h3 class="novel-title">พ่ายรักมาเฟียร้าย</h3>
-                            <p class="novel-desc">เมื่อความรักต้องแลกด้วยหัวใจของเธอเอง... เรื่องราวสุดเข้มข้นที่จะทำให้คุณวางไม่ลง</p>
+                            <p class="novel-desc">เมื่อความรักต้องแลกด้วยหัวใจของเธอเอง...</p>
                             <div class="novel-meta"><span class="likes">♡ 510K</span><span class="genre-tag">โรแมนติก</span></div>
                         </div>
                     </div>
-
                     <div class="featured-card">
                         <div class="novel-cover-placeholder" style="background: linear-gradient(135deg, #fbcfe8 100%, #f472b6 100%);"><span>ปก 2</span></div>
                         <div class="novel-info">
                             <h3 class="novel-title">เวทมนตร์รักฉบับอลวน</h3>
-                            <p class="novel-desc">ท่านจอมมารหน้าตายกับบาทหลวงฝึกหัดผู้มีพลังวิเศษรั่วไหล การผจญภัยปนความฟินจึงเริ่มต้นขึ้น</p>
+                            <p class="novel-desc">ท่านจอมมารหน้าตายกับบาทหลวงฝึกหัด...</p>
                             <div class="novel-meta"><span class="likes">♡ 280K</span><span class="genre-tag">แฟนตาซี</span></div>
                         </div>
                     </div>
-
                     <div class="featured-card">
                         <div class="novel-cover-placeholder" style="background: linear-gradient(135deg, #fed7aa 100%, #fb923c 100%);"><span>ปก 3</span></div>
                         <div class="novel-info">
                             <h3 class="novel-title">วันสลักโลกันตร์</h3>
-                            <p class="novel-desc">ย้อนเวลากลับมาแก้แค้นในร่างของคุณชายรองผู้ถูกเนรเทศ เกมนี้ใครคือผู้ล่าตัวจริง</p>
+                            <p class="novel-desc">ย้อนเวลากลับมาแก้แค้นในร่างคุณชายรอง...</p>
                             <div class="novel-meta"><span class="likes">♡ 195K</span><span class="genre-tag">แอคชั่น</span></div>
                         </div>
                     </div>
                 </section>
             </div>
 
-            <!-- === ส่วนที่ 2: หน้าบัญชี (Profile Page) === -->
-            <div id="profile-page" class="page-view" style="display: none;">
+            <!-- ส่วนที่ 2: หน้าบัญชี -->
+            <div id="profile-page" class="page-view" style="display: none; flex-direction: column; gap: 12px; padding: 12px 0;">
                 <div class="profile-header-card">
                     <div class="profile-avatar-box">
-                        <img src="artworks/icon_proflie.png" alt="Profile" class="profile-avatar-img">
+                        <img src="artworks/icon_profile.png" alt="Profile" class="profile-avatar-img">
                     </div>
                     <div class="profile-user-info">
                         <h2 class="profile-display-name">นักอ่านของ WriteLan</h2>
@@ -181,4 +170,34 @@
                 </div>
             </div>
 
-        </div>
+        </div> <!-- ปิด .main-scroll-area -->
+
+        <!-- แถบเมนูด้านล่าง (ต้องอยู่ข้างใน #app-container แต่ข้างนอก .main-scroll-area) -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" onclick="switchTab(this, 'หน้าแรก')">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                <span>หน้าแรก</span>
+            </button>
+            <button class="nav-item" onclick="switchTab(this, 'แฟนฟิคชั่น')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                <span>แฟนฟิคชั่น</span>
+            </button>
+            <button class="nav-item" onclick="switchTab(this, 'คลังของฉัน')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                <span>คลังของฉัน</span>
+            </button>
+            <button class="nav-item" onclick="switchTab(this, 'นักเขียน')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path></svg>
+                <span>นักเขียน</span>
+            </button>
+            <button class="nav-item" onclick="switchTab(this, 'บัญชี')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>บัญชี</span>
+            </button>
+        </nav>
+
+    </div> <!-- ปิด #app-container ตัวหลักสุด -->
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -37,13 +37,11 @@ window.currentSlide = function(index) {
     showSlide(index);
 }
 
-// ตั้งเวลาเปลี่ยนสไลด์ทุก 5 วินาที
 setInterval(() => {
     showSlide(currentBannerIndex + 1);
 }, 5000);
 
-
-// 2. ระบบสลับธีมสี 4 โหมด พร้อมเปลี่ยนสีขอบบนสุดของมือถือให้กลมกลืน
+// 2. ระบบสลับธีมสี 4 โหมด
 const themes = [
     { class: 'theme-teal', icon: '☁️', bgColor: '#f2fbfa' },
     { class: 'theme-coffee', icon: '☕️', bgColor: '#faf3eb' },
@@ -59,7 +57,6 @@ window.cycleTheme = function() {
     const metaTheme = document.getElementById('meta-theme-color');
     
     themes.forEach(t => body.classList.remove(t.class));
-    
     const selected = themes[currentThemeIdx];
     body.classList.add(selected.class);
     
@@ -67,8 +64,7 @@ window.cycleTheme = function() {
     if (metaTheme) metaTheme.setAttribute('content', selected.bgColor);
 };
 
-
-// 3. ฟังก์ชันควบคุมการคลิกเมนูต่างๆ
+// 3. ระบบสลับหน้าจอ (หน้าแรก <-> หน้าบัญชี)
 window.switchTab = function(element, tabName) {
     document.querySelectorAll('.nav-item').forEach(item => {
         item.classList.remove('active');
@@ -87,48 +83,11 @@ window.switchTab = function(element, tabName) {
     }
 };
 
-window.selectMenu = function(menuName) {
-    console.log("เลือกเมนู:", menuName);
-};
-
-window.openSearch = function() {
-    alert("เปิดหน้าค้นหานิยาย");
-};
-
-window.openNotifications = function() {
-    alert("เปิดหน้าแจ้งเตือน");
-};
-
-// ฟังก์ชันสลับแท็บเมนูด้านล่าง
-window.switchTab = function(element, tabName) {
-    document.querySelectorAll('.nav-item').forEach(item => {
-        item.classList.remove('active');
-    });
-    element.classList.add('active');
-
-    // จัดการการแสดงผลแต่ละหน้า
-    const homeSections = document.querySelectorAll('.banner-slider-container, .quick-menu, .novel-section');
-    const profilePage = document.getElementById('profile-page');
-
-    if (tabName === 'บัญชี') {
-        // ซ่อนหน้าแรก แสดงหน้าบัญชี
-        homeSections.forEach(sec => sec.style.display = 'none');
-        if (profilePage) profilePage.style.display = 'block';
-    } else {
-        // แสดงหน้าแรก ซ่อนหน้าบัญชี (สำหรับแท็บอื่นๆ ที่กำลังพัฒนาต่อ)
-        homeSections.forEach(sec => sec.style.display = '');
-        if (profilePage) profilePage.style.display = 'none';
-    }
-};
-
-window.openProfileDetail = function() {
-    alert("ไปยังหน้าโปรไฟล์ของคุณ");
-};
-
-window.openMenuAction = function(menuName) {
-    alert("เปิดเมนู: " + menuName);
-};
-
+window.selectMenu = function(menuName) { console.log("เลือกเมนู:", menuName); };
+window.openSearch = function() { alert("เปิดหน้าค้นหานิยาย"); };
+window.openNotifications = function() { alert("เปิดหน้าแจ้งเตือน"); };
+window.openProfileDetail = function() { alert("ไปยังหน้าโปรไฟล์ของคุณ"); };
+window.openMenuAction = function(menuName) { alert("เปิดเมนู: " + menuName); };
 window.handleLogout = function() {
     if(confirm("คุณต้องการออกจากระบบใช่หรือไม่?")) {
         alert("ออกจากระบบเรียบร้อยแล้ว");
