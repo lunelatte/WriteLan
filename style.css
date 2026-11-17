@@ -864,7 +864,7 @@ body {
     align-items: center;
     gap: 14px;
     position: relative;
-    margin-top: -50px
+    margin-top: -10px
 }
 
 .user-avatar-wrapper {
@@ -1049,7 +1049,7 @@ body {
     border-radius: 3px 3px 0 0;
 }
 
-/* ส่วนผลงานของ Lunlatte */
+/* ส่วนผลงานของ Lunelatte */
 .user-works-container {
     background-color: var(--card-bg);
     padding: 14px 16px;
