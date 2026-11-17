@@ -74,7 +74,17 @@ window.switchTab = function(element, tabName) {
         item.classList.remove('active');
     });
     element.classList.add('active');
-    console.log("เปิดหน้า:", tabName);
+
+    const homeContent = document.getElementById('home-page-content');
+    const profilePage = document.getElementById('profile-page');
+
+    if (tabName === 'บัญชี') {
+        if (homeContent) homeContent.style.display = 'none';
+        if (profilePage) profilePage.style.display = 'flex';
+    } else {
+        if (homeContent) homeContent.style.display = 'block';
+        if (profilePage) profilePage.style.display = 'none';
+    }
 };
 
 window.selectMenu = function(menuName) {

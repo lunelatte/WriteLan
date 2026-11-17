@@ -74,18 +74,37 @@
                     </button>
                 </section>
 
-                <!-- นิยายแนะนำ -->
+                <!-- นิยายแนะนำ (ครบทุกเรื่องเหมือนเดิมแล้วครับ) -->
                 <section class="novel-section">
                     <div class="section-header">
                         <h2><img src="artworks/icon_star.png" alt="Star" class="section-heading-icon"> นิยายแนะนำ</h2>
                         <a href="#" class="view-all">ดูทั้งหมด &gt;</a>
                     </div>
+                    
                     <div class="featured-card">
                         <div class="novel-cover-placeholder" style="background: linear-gradient(135deg, #a5f3fc 0%, #38bdf8 100%);"><span>ปก 1</span></div>
                         <div class="novel-info">
                             <h3 class="novel-title">พ่ายรักมาเฟียร้าย</h3>
-                            <p class="novel-desc">เมื่อความรักต้องแลกด้วยหัวใจของเธอเอง...</p>
+                            <p class="novel-desc">เมื่อความรักต้องแลกด้วยหัวใจของเธอเอง... เรื่องราวสุดเข้มข้นที่จะทำให้คุณวางไม่ลง</p>
                             <div class="novel-meta"><span class="likes">♡ 510K</span><span class="genre-tag">โรแมนติก</span></div>
+                        </div>
+                    </div>
+
+                    <div class="featured-card">
+                        <div class="novel-cover-placeholder" style="background: linear-gradient(135deg, #fbcfe8 100%, #f472b6 100%);"><span>ปก 2</span></div>
+                        <div class="novel-info">
+                            <h3 class="novel-title">เวทมนตร์รักฉบับอลวน</h3>
+                            <p class="novel-desc">ท่านจอมมารหน้าตายกับบาทหลวงฝึกหัดผู้มีพลังวิเศษรั่วไหล การผจญภัยปนความฟินจึงเริ่มต้นขึ้น</p>
+                            <div class="novel-meta"><span class="likes">♡ 280K</span><span class="genre-tag">แฟนตาซี</span></div>
+                        </div>
+                    </div>
+
+                    <div class="featured-card">
+                        <div class="novel-cover-placeholder" style="background: linear-gradient(135deg, #fed7aa 100%, #fb923c 100%);"><span>ปก 3</span></div>
+                        <div class="novel-info">
+                            <h3 class="novel-title">วันสลักโลกันตร์</h3>
+                            <p class="novel-desc">ย้อนเวลากลับมาแก้แค้นในร่างของคุณชายรองผู้ถูกเนรเทศ เกมนี้ใครคือผู้ล่าตัวจริง</p>
+                            <div class="novel-meta"><span class="likes">♡ 195K</span><span class="genre-tag">แอคชั่น</span></div>
                         </div>
                     </div>
                 </section>
@@ -93,7 +112,6 @@
 
             <!-- === ส่วนที่ 2: หน้าบัญชี (Profile Page) === -->
             <div id="profile-page" class="page-view" style="display: none;">
-                <!-- 1. ข้อมูลโปรไฟล์ส่วนตัว -->
                 <div class="profile-header-card">
                     <div class="profile-avatar-box">
                         <img src="artworks/icon_proflie.png" alt="Profile" class="profile-avatar-img">
@@ -104,7 +122,6 @@
                     </div>
                 </div>
 
-                <!-- 2. กล่องสถิติ -->
                 <div class="profile-stats-card">
                     <div class="stat-item">
                         <div class="stat-icon-box"><img src="artworks/icon_book.png" alt="นิยายที่อ่าน" class="pixel-stat-icon"></div>
@@ -123,7 +140,6 @@
                     </div>
                 </div>
 
-                <!-- 3. แบนเนอร์กิจกรรมพิเศษ -->
                 <div class="special-event-banner" onclick="openProfileDetail()">
                     <div class="event-left">
                         <img src="artworks/cozycat.png" alt="Special Event" class="event-cat-img">
@@ -137,7 +153,6 @@
                     </div>
                 </div>
 
-                <!-- 4. รายการเมนูหลัก -->
                 <div class="profile-menu-list">
                     <button class="profile-menu-item" onclick="openMenuAction('เหรียญของฉัน')">
                         <div class="menu-item-left"><span class="menu-item-icon">🪙</span><span>เหรียญของฉัน</span></div>
@@ -161,7 +176,6 @@
                     </button>
                 </div>
 
-                <!-- 5. ปุ่มออกจากระบบ -->
                 <div class="logout-container">
                     <button class="logout-btn" onclick="handleLogout()">ออกจากระบบ</button>
                 </div>
