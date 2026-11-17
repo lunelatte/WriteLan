@@ -2,8 +2,13 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" id="meta-theme-color" content="#f2fbfa">
     <title>WriteLan</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="artworks/icon_web.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,7 +20,7 @@
         
         <!-- แถบบนสุด (ชื่อเว็บ + เมนูด้านขวา: ค้นหา, เปลี่ยนธีม, แจ้งเตือน) -->
         <header class="top-nav-bar">
-            <div class="brand-title">WriteLan <span class="sparkle">✨</span></div>
+            <div class="brand-title">WriteLan</span></div>
             <div class="top-actions">
                 <button class="action-btn" onclick="openSearch()" title="ค้นหา">
                     <img src="artworks/icon_search.png" alt="Search" class="top-icon">
@@ -66,7 +71,7 @@
                 <button class="menu-card" onclick="selectMenu('ใหม่ล่าสุด')">
                     <span class="badge-new">NEW</span>
                     <div class="icon-box">
-                        <img src="artworks/icon_star.png" alt="ใหม่ล่าสุด" class="pixel-menu-icon">
+                        <img src="artworks/icon_energy.png" alt="ใหม่ล่าสุด" class="pixel-menu-icon">
                     </div>
                     <span>ใหม่ล่าสุด</span>
                 </button>

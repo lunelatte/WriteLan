@@ -43,12 +43,12 @@ setInterval(() => {
 }, 5000);
 
 
-// 2. ระบบสลับธีมสี 4 โหมด (☁️ -> ☕️ -> 🌷 -> 🌙)
+// 2. ระบบสลับธีมสี 4 โหมด พร้อมเปลี่ยนสีขอบบนสุดของมือถือให้กลมกลืน
 const themes = [
-    { class: 'theme-teal', icon: '☁️' },
-    { class: 'theme-coffee', icon: '☕️' },
-    { class: 'theme-pink', icon: '🌷' },
-    { class: 'theme-dark', icon: '🌙' }
+    { class: 'theme-teal', icon: '☁️', bgColor: '#f2fbfa' },
+    { class: 'theme-coffee', icon: '☕️', bgColor: '#faf3eb' },
+    { class: 'theme-pink', icon: '🌷', bgColor: '#fdf2f8' },
+    { class: 'theme-dark', icon: '🌙', bgColor: '#0b1120' }
 ];
 let currentThemeIdx = 0;
 
@@ -56,15 +56,15 @@ window.cycleTheme = function() {
     currentThemeIdx = (currentThemeIdx + 1) % themes.length;
     const body = document.body;
     const themeIcon = document.getElementById('theme-icon');
+    const metaTheme = document.getElementById('meta-theme-color');
     
-    // ลบธีมเก่าออกทั้งหมด
     themes.forEach(t => body.classList.remove(t.class));
     
-    // ใส่ธีมใหม่
-    body.classList.add(themes[currentThemeIdx].class);
-    if (themeIcon) {
-        themeIcon.textContent = themes[currentThemeIdx].icon;
-    }
+    const selected = themes[currentThemeIdx];
+    body.classList.add(selected.class);
+    
+    if (themeIcon) themeIcon.textContent = selected.icon;
+    if (metaTheme) metaTheme.setAttribute('content', selected.bgColor);
 };
 
 
