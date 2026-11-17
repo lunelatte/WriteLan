@@ -408,7 +408,7 @@ body {
     gap: 2px;
     color: var(--text-gray);
     cursor: pointer;
-    padding-bottom: 12px;
+    padding-bottom: 20px;
 }
 
 .nav-item svg {
